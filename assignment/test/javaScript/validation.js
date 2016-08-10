@@ -1,3 +1,5 @@
+var abc=[];
+
 function valid()
 {
 	
@@ -35,10 +37,19 @@ function show()
 
 function data_inp()
 {
+
 	var user=document.getElementById('emp_name').value;
 	var pass=document.getElementById('emp_pass').value;
-
 	
+	var obj={};
+	
+	obj.username=user;
+	obj.password=pass;
+
+	abc.push(obj);
+	alert(abc);
+	
+
 	return false;
 }
 
