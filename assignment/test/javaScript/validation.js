@@ -1,4 +1,103 @@
 var abc=[];
+function aabb()
+{
+	var bu=document.getElementById('button4');
+	bu.preventDefault;
+}
+
+function show_hide(num)
+{
+	switch(num)
+	{
+		case 1:
+		{
+			document.getElementById('emp_form1').style.display='none';
+			document.getElementById('nav_bar').style.display='block';
+			break;
+		}
+		case 2:
+		{
+			document.getElementById('login_page').style.display='none';
+			document.getElementById('add_emp').style.display='block';
+			break;
+		}
+		case 3:
+		{
+			
+			if(document.getElementById('emp_detail')!=null)
+			{
+					document.getElementById('emp_detail').style.display='none';
+			}
+			if(document.getElementById('show_emp_detail')!=null)
+			{
+					document.getElementById('show_emp_detail').style.display='none';
+			}
+			if(document.getElementById('remarks_div')!=null)
+			{
+					document.getElementById('remarks_div').style.display='none';
+			}
+			document.getElementById('emp_form1').style.display='block';
+			break;
+		}
+		case 4:
+		{
+			if(document.getElementById('show_emp_detail')!=null)
+			{
+					document.getElementById('show_emp_detail').style.display='none';
+			}
+			if(document.getElementById('remarks_div')!=null)
+			{
+					document.getElementById('remarks_div').style.display='none';
+			}
+			if(document.getElementById('emp_form1')!=null)
+			{
+					document.getElementById('emp_form1').style.display='none';
+			}
+			//document.getElementById('show_emp_detail').style.display='none';
+			emp_details();
+			
+			
+			break;
+		}
+		case 5:
+		{
+			if(document.getElementById('emp_detail')!=null)
+			{
+					document.getElementById('emp_detail').style.display='none';
+			}
+			if(document.getElementById('show_emp_detail')!=null)
+			{
+					document.getElementById('show_emp_detail').style.display='none';
+			}
+			if(document.getElementById('emp_form1')!=null)
+			{
+					document.getElementById('emp_form1').style.display='none';
+			}
+			add_remarks();
+			break;
+		}
+		case 6:
+		{
+			if(document.getElementById('emp_detail')!=null)
+			{
+					document.getElementById('emp_detail').style.display='none';
+			}
+			if(document.getElementById('show_emp_detail')!=null)
+			{
+					document.getElementById('show_emp_detail').style.display='none';
+			}
+			if(document.getElementById('remarks_div')!=null)
+			{
+					document.getElementById('remarks_div').style.display='none';
+			}
+			if(document.getElementById('emp_form1')!=null)
+			{
+					document.getElementById('emp_form1').style.display='none';
+			}
+			break;
+		}
+	}
+}
 
 function valid()
 {
@@ -11,17 +110,21 @@ function valid()
 		alert('please do not leave field blank');
 	}
 	
-	else if(username=='amancronj' && password==12345)
+	else if(username=='aman@g.com' && password==12345)
 	{
 		alert("Correct login");
+		show_hide(2);
 		
-		window.open("hr.html");
-
-
+			
+		document.getElementById('username').value='';
+		document.getElementById('password').value='';
+		//window.open("hr.html");
 	}
 	else
 	{
 		alert("Wrong id password");
+		document.getElementById('username').value='';
+		document.getElementById('password').value='';
 	}
 
 	//document.getElementById('posts').innerHTML="hahahahaha";
@@ -31,27 +134,60 @@ function valid()
 
 function show()
 {
-
+		document.getElementById('add_emp').style.display='none';
 		document.getElementById('emp_form1').style.display='block';
 }
 
 function data_inp()
 {
 
-	var user=document.getElementById('emp_name').value;
-	var pass=document.getElementById('emp_pass').value;
-	
-	var obj={};
-	
-	obj.username=user;
-	obj.password=pass;
+	var emp_name=document.getElementById('emp_name').value;
+	var email=document.getElementById('email').value;
+	var address=document.getElementById('address').value;
+	var pincode=document.getElementById('pincode').value;
+	var pass1=document.getElementById('emp_pass1').value;
+	var pass2=document.getElementById('emp_pass2').value;
 
-	abc.push(obj);
+	if(emp_name=="" || email== "" || address== ""|| pincode == "" || pass1 == "" || pass2 == "")
+	{
+		alert('please fill all fields');
+	}
+	else if(pass1!=pass2)
+	{
+		alert('Password Mismatch.');
+	}
+	else
+	{
+
+		var obj={};
+	
+		obj.username=emp_name;
+		obj.address=address;
+		obj.pincode=pincode;
+		obj.email=email;
+		obj.password=pass1;
+		
+
+		abc.push(obj);	
+		alert(abc);
+		show_hide(1);
+		
+		
+	}
+
+	return false;
+	
 	//alert(abc);
 
-	return emp_details();
 	
-	return false;
+	
+	
+}
+
+function nav_show()
+{
+	document.getElementById('emp_form1').style.display='none';
+	document.getElementById('nav_bar').style.display='block';
 }
 
 function data_show()
@@ -171,14 +307,50 @@ function show_emp_details()
 
 		var main_div=document.getElementById('main_div');
 		div.insertAdjacentHTML('beforeend','<br /><lalbel>Employee name</label> : ' +
+
 		 username +' ');
 		main_div.appendChild(div);
+		
+
+
+		//add_remarks();
 
 }
 
 function add_remarks()
 {
+	var prev_div = document.getElementById('remarks_div');
+   
+    if(prev_div!=null)
+    {
+   	 prev_div.parentNode.removeChild(prev_div); 	
+	};
+
 	var div=document.createElement('div');
 		div.setAttribute('id','remarks_div');
+		div.insertAdjacentHTML('afterbegin','<label>Employs : ');
+		div.insertAdjacentHTML('afterbegin','<h2>Add Remarks</h2>');
+		
+		
+		
+
+		var sel=document.createElement('select');
+		sel.setAttribute('id','select2');
+
+		for(var i=0;i<abc.length;i++)
+	{
+		var opt=document.createElement('option');
+		opt.setAttribute('value',i);
+		var node=document.createTextNode(abc[i].username);		
+		opt.appendChild(node);		
+		sel.appendChild(opt);
+	}
+		div.appendChild(sel);
+		div.insertAdjacentHTML('beforeend',''+
+			'<br /><label>Remarks : </label><input type="text" id="Remarks">');
+		div.insertAdjacentHTML('beforeend','<br /><button onclick="alert(`hahaha`);"> Add </button>'+
+			'');
+		var main_div=document.getElementById('main_div');
+		main_div.appendChild(div);
 		
 }	
