@@ -6,8 +6,6 @@
 </head>
 
 <body>
-
-<div id='main_div'>
 	<div><h1><center>Employee Management System</center></h1></div>
 	<div id='login_page' >
 			<h3><center> LOGIN <center> </h3>
@@ -19,22 +17,29 @@
 		</form></center>
 	</div>
 
+<div id='main_div'>
+	
+
 	<div id='add_emp' hidden>
 		<center>
-		<button id='add_employee' onclick="show();">Add employee</button>
+		<button id='add_employee' onclick="show();">Add employee</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<button id='add_employee' onclick="show_hide(8);">Logout</button>	
 		</center>
 	</div>
 
 	<div id='nav_bar' hidden>
-		<center>
-		<span><button onclick='show_hide(3);'>Add Employs</button>&nbsp&nbsp
+		
+		<nav><center><button onclick='show_hide(3);'>Add Employs</button>&nbsp&nbsp
 		<button onclick='show_hide(4);'>Employ Details</button>&nbsp&nbsp
 		<button onclick='show_hide(5);'>Add Remarks</button>&nbsp&nbsp
-		<button onclick='show_hide(6);'>Search</button></span>
+		<button onclick='show_hide(6);'>Search</button>&nbsp&nbsp&nbsp&nbsp
+		<button onclick='show_hide(8);' style="align:'right';">Logout</button>
 		</center>
+		</nav>
+		
 	</div>
 	
-	<div id='emp_form1'>	
+	<div id='emp_form1' hidden>	
 		<center>
 		<h3>Add Employ Details</h3>
 	   <form id='form2' onsubmit='return data_inp()'>
@@ -62,6 +67,7 @@
 		</select> -->
 		</center>
 	</div>
+	<div id='semi_main'></div>
 
 </div>
 

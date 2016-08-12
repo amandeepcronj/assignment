@@ -1,9 +1,9 @@
 var abc=[];
-function aabb()
-{
-	var bu=document.getElementById('button4');
-	bu.preventDefault;
-}
+// function aabb()
+// {
+// 	var bu=document.getElementById('button4');
+// 	bu.preventDefault;
+// }
 
 function show_hide(num)
 {
@@ -13,11 +13,13 @@ function show_hide(num)
 		{
 			document.getElementById('emp_form1').style.display='none';
 			document.getElementById('nav_bar').style.display='block';
+			emp_details();
 			break;
 		}
 		case 2:
 		{
 			document.getElementById('login_page').style.display='none';
+			document.getElementById('main_div').style.display='block';
 			document.getElementById('add_emp').style.display='block';
 			break;
 		}
@@ -36,6 +38,7 @@ function show_hide(num)
 			{
 					document.getElementById('remarks_div').style.display='none';
 			}
+			document.getElementById('semi_main').style.display='block';
 			document.getElementById('emp_form1').style.display='block';
 			break;
 		}
@@ -54,6 +57,7 @@ function show_hide(num)
 					document.getElementById('emp_form1').style.display='none';
 			}
 			//document.getElementById('show_emp_detail').style.display='none';
+			document.getElementById('semi_main').style.display='block';
 			emp_details();
 			
 			
@@ -73,6 +77,7 @@ function show_hide(num)
 			{
 					document.getElementById('emp_form1').style.display='none';
 			}
+			document.getElementById('semi_main').style.display='block';
 			add_remarks();
 			break;
 		}
@@ -94,6 +99,24 @@ function show_hide(num)
 			{
 					document.getElementById('emp_form1').style.display='none';
 			}
+			document.getElementById('semi_main').style.display='block';
+			break;
+		}
+		case 7:
+		{
+			document.getElementById('emp_detail').style.display='none';
+			break;
+		}
+		case 8:
+		{
+			document.getElementById('add_emp').style.display='none';
+			document.getElementById('nav_bar').style.display='none';
+			document.getElementById('emp_form1').style.display='none';
+			document.getElementById('semi_main').style.display='none';
+			//document.getElementById('main_div').style.display='none';
+
+			document.getElementById('login_page').style.display='block';
+
 			break;
 		}
 	}
@@ -101,8 +124,6 @@ function show_hide(num)
 
 function valid()
 {
-	
-
 	var username=document.getElementById('username').value;
 	var password=document.getElementById('password').value;
 	if(username=="" || password=="")
@@ -112,12 +133,24 @@ function valid()
 	
 	else if(username=='aman@g.com' && password==12345)
 	{
-		alert("Correct login");
-		show_hide(2);
+		if(abc[0]==null)
+		{
+			alert("Correct login");
+			show_hide(2);
 		
 			
-		document.getElementById('username').value='';
-		document.getElementById('password').value='';
+			document.getElementById('username').value='';
+			document.getElementById('password').value='';
+		}
+		else
+		{
+			document.getElementById('login_page').style.display='none';
+			document.getElementById('nav_bar').style.display='block';
+
+		}	
+		
+			
+		
 		//window.open("hr.html");
 	}
 	else
@@ -160,12 +193,13 @@ function data_inp()
 	{
 
 		var obj={};
-	
+		
 		obj.username=emp_name;
 		obj.address=address;
 		obj.pincode=pincode;
 		obj.email=email;
 		obj.password=pass1;
+		obj.remarks='';
 		
 
 		abc.push(obj);	
@@ -244,10 +278,15 @@ function emp_details()
 
 	var div=document.createElement('div');
 		div.setAttribute('id','emp_detail');
+	var cen=document.createElement('center');
 	var br=document.createElement('br');
+	var br2=document.createElement('br');
+	var header=document.createElement('h3');
+
 	var data=document.createTextNode("Employ Details ");
+		header.appendChild(data);
 	var label=document.createElement('label');
-	var data2=document.createTextNode('Employ : ');
+	var data2=document.createTextNode('Select Employ : ');
 		label.appendChild(data2);
 
 	var button=document.createElement('button');
@@ -270,18 +309,20 @@ function emp_details()
 		//var br=document.createElement('br');
 		//var poo=document.createTextNode("This is something");	
 		
-		div.appendChild(data);
-		div.appendChild(br);
+		cen.appendChild(header);
+		cen.appendChild(br);
 
-		div.appendChild(label);
+		cen.appendChild(label);
 		//div.appendChild(br);
-		div.appendChild(sel);
+		cen.appendChild(sel);
 		var br1=document.createElement('br');
-		div.appendChild(br1);
-		div.appendChild(button);
+		cen.appendChild(br1);
+		cen.appendChild(br2);
+		cen.appendChild(button);
 	//div.appendChild(br);
 	//div.appendChild(poo);
-	var div2=document.getElementById('main_div');
+	var div2=document.getElementById('semi_main');
+	div.appendChild(cen);
 	div2.appendChild(div);
 }
 
@@ -297,18 +338,34 @@ function show_emp_details()
 		var sel=document.getElementById('select1');
 		var index=sel.options[sel.selectedIndex].value;
 		var username=abc[index].username;
+		var email=abc[index].email;
+		var address=abc[index].address;
+		var pincode=abc[index].pincode;
+		var remarks=abc[index].remarks;
 
 		//alert(username);
-
+		show_hide(7);
+		
 		var div=document.createElement('div');
 		div.setAttribute('id','show_emp_detail');
+		var cen=document.createElement('center');
 		// div.innerHTML('<br /><lalbel>Employee name</label>' + username +' ');
 		//alert(username);
 
-		var main_div=document.getElementById('main_div');
-		div.insertAdjacentHTML('beforeend','<br /><lalbel>Employee name</label> : ' +
-
+		var main_div=document.getElementById('semi_main');
+		cen.insertAdjacentHTML('beforeend','<h3>Employ Details</h3>');
+		cen.insertAdjacentHTML('beforeend','<lalbel>Full name</label> : ' +
 		 username +' ');
+		cen.insertAdjacentHTML('beforeend','<br /><br /><lalbel>Email</label> : ' +
+		 email +' ');
+		cen.insertAdjacentHTML('beforeend','<br /><br /><lalbel>Address</label> : ' +
+		 address +' ');
+		cen.insertAdjacentHTML('beforeend','<br /><br /><lalbel>Pincode</label> : ' +
+		 pincode +' ');
+		cen.insertAdjacentHTML('beforeend','<br /><br /><lalbel>Remarks</label> : ' +
+		 remarks +' ');
+
+		div.appendChild(cen);
 		main_div.appendChild(div);
 		
 
@@ -328,13 +385,11 @@ function add_remarks()
 
 	var div=document.createElement('div');
 		div.setAttribute('id','remarks_div');
-		div.insertAdjacentHTML('afterbegin','<label>Employs : ');
-		div.insertAdjacentHTML('afterbegin','<h2>Add Remarks</h2>');
-		
-		
-		
 
-		var sel=document.createElement('select');
+	var cen=document.createElement('center');
+		cen.insertAdjacentHTML('afterbegin','<label>Employs : ');
+		cen.insertAdjacentHTML('afterbegin','<h2>Add Remarks</h2>');
+	var sel=document.createElement('select');
 		sel.setAttribute('id','select2');
 
 		for(var i=0;i<abc.length;i++)
@@ -345,12 +400,31 @@ function add_remarks()
 		opt.appendChild(node);		
 		sel.appendChild(opt);
 	}
-		div.appendChild(sel);
-		div.insertAdjacentHTML('beforeend',''+
-			'<br /><label>Remarks : </label><input type="text" id="Remarks">');
-		div.insertAdjacentHTML('beforeend','<br /><button onclick="alert(`hahaha`);"> Add </button>'+
+		cen.appendChild(sel);
+		cen.insertAdjacentHTML('beforeend',''+
+			'<br /><br /><label>Remarks : </label><input type="text" id="feedback">');
+		cen.insertAdjacentHTML('beforeend','<br /><br /><button onclick="add_feedback();"> Add </button>'+
 			'');
-		var main_div=document.getElementById('main_div');
+		var main_div=document.getElementById('semi_main');
+		div.appendChild(cen);
 		main_div.appendChild(div);
 		
+}
+
+function add_feedback()
+{
+	var sel=document.getElementById('select2');
+		var index=sel.options[sel.selectedIndex].value;
+		abc[index].remarks=document.getElementById('feedback').value;
+		show_hide(4);
 }	
+
+function search()
+{
+
+}
+
+function show_details(index)
+{
+
+}
