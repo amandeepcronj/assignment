@@ -21,6 +21,7 @@ function show_hide(num)
 			document.getElementById('login_page').style.display='none';
 			document.getElementById('main_div').style.display='block';
 			document.getElementById('add_emp').style.display='block';
+			show();
 			break;
 		}
 		case 3:
@@ -135,7 +136,7 @@ function valid()
 	{
 		if(abc[0]==null)
 		{
-			alert("Correct login");
+			//alert("Correct login");
 			show_hide(2);
 		
 			
@@ -155,9 +156,27 @@ function valid()
 	}
 	else
 	{
-		alert("Wrong id password");
+		if(abc[0]==null)
+		{
+			alert("Wrong id password");
 		document.getElementById('username').value='';
 		document.getElementById('password').value='';
+		}
+		else
+		{
+			for(i=0;i<abc.length;i++)
+			{
+				var email=abc[i].email;
+				var pass=abc[i].password;
+				if(username==email && password == pass )
+				{
+					show_details(i);
+					break;
+				}
+			}
+			alert("Wrong id password");
+		}
+		
 	}
 
 	//document.getElementById('posts').innerHTML="hahahahaha";
