@@ -72,7 +72,6 @@ function show_hide(num)
 			{
 					document.getElementById('emp_data').style.display='none';
 			}
-			//document.getElementById('show_emp_detail').style.display='none';
 			document.getElementById('semi_main').style.display='block';
 			emp_details();
 			
@@ -138,8 +137,6 @@ function show_hide(num)
 			document.getElementById('nav_bar').style.display='none';
 			document.getElementById('emp_form1').style.display='none';
 			document.getElementById('semi_main').style.display='none';
-			//document.getElementById('main_div').style.display='none';
-
 			document.getElementById('login_page').style.display='block';
 
 			break;
@@ -216,9 +213,6 @@ function valid()
 
 		}	
 		
-			
-		
-		//window.open("hr.html");
 	}
 	else
 	{
@@ -322,7 +316,7 @@ function data_inp()
 		obj.password=pass1;
 		obj.remarks='';
 		abc.push(obj);	
-		alert(abc);
+		
 		clear_fields(2);
 		show_hide(1);
 		}
@@ -334,7 +328,7 @@ function data_inp()
 
 	return false;
 	
-	//alert(abc);
+	
 
 	
 	
@@ -380,7 +374,6 @@ function emp_details()
 		button.appendChild(data3);
 	var sel=document.createElement('select');
 		sel.setAttribute('id','select1');
-		//*sel.setAttribute('onchange','aaaa();');
 
 
 	for(var i=0;i<abc.length;i++)
@@ -391,21 +384,17 @@ function emp_details()
 		opt.appendChild(node);		
 		sel.appendChild(opt);
 	}
-		//var br=document.createElement('br');
-		//var poo=document.createTextNode("This is something");	
+		
 		
 		cen.appendChild(header);
 		cen.appendChild(br);
 
 		cen.appendChild(label);
-		//div.appendChild(br);
 		cen.appendChild(sel);
 		var br1=document.createElement('br');
 		cen.appendChild(br1);
 		cen.appendChild(br2);
 		cen.appendChild(button);
-	//div.appendChild(br);
-	//div.appendChild(poo);
 	var div2=document.getElementById('semi_main');
 	div.appendChild(cen);
 	div2.appendChild(div);
@@ -434,20 +423,20 @@ function show_emp_details()
 		var div=document.createElement('div');
 		div.setAttribute('id','show_emp_detail');
 		var cen=document.createElement('center');
-		// div.innerHTML('<br /><lalbel>Employee name</label>' + username +' ');
+		// div.innerHTML('<br /><label>Employee name</label>' + username +' ');
 		//alert(username);
 
 		var main_div=document.getElementById('semi_main');
 		cen.insertAdjacentHTML('beforeend','<h3>Employ Details</h3>');
-		cen.insertAdjacentHTML('beforeend','<lalbel>Full name</label> : ' +
+		cen.insertAdjacentHTML('beforeend','<label>Full name</label> : ' +
 		 username +' ');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><lalbel>Email</label> : ' +
+		cen.insertAdjacentHTML('beforeend','<br /><br /><label>Email</label> : ' +
 		 email +' ');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><lalbel>Address</label> : ' +
+		cen.insertAdjacentHTML('beforeend','<br /><br /><label>Address</label> : ' +
 		 address +' ');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><lalbel>Pincode</label> : ' +
+		cen.insertAdjacentHTML('beforeend','<br /><br /><label>Pincode</label> : ' +
 		 pincode +' ');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><lalbel>Remarks</label> : ' +
+		cen.insertAdjacentHTML('beforeend','<br /><br /><label>Remarks</label> : ' +
 		 remarks +' ');
 
 		div.appendChild(cen);
@@ -504,10 +493,7 @@ function add_feedback()
 		show_hide(4);
 }	
 
-function search()
-{
 
-}
 
 function show_details(index)
 {
@@ -528,20 +514,20 @@ function show_details(index)
 		var div=document.createElement('div');
 		div.setAttribute('id','emp_data');
 		var cen=document.createElement('center');
-		// div.innerHTML('<br /><lalbel>Employee name</label>' + username +' ');
+		// div.innerHTML('<br /><label>Employee name</label>' + username +' ');
 		//alert(username);
 
 		var main_div=document.getElementById('semi_main');
 		cen.insertAdjacentHTML('beforeend','<h3>Employ Details</h3>');
-		cen.insertAdjacentHTML('beforeend','<lalbel>Full name</label> : ' +
+		cen.insertAdjacentHTML('beforeend','<label>Full name</label> : ' +
 		 username +' ');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><lalbel>Email</label> : ' +
+		cen.insertAdjacentHTML('beforeend','<br /><br /><label>Email</label> : ' +
 		 email +' ');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><lalbel>Address</label> : ' +
+		cen.insertAdjacentHTML('beforeend','<br /><br /><label>Address</label> : ' +
 		 address +' ');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><lalbel>Pincode</label> : ' +
+		cen.insertAdjacentHTML('beforeend','<br /><br /><label>Pincode</label> : ' +
 		 pincode +' ');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><lalbel>Remarks</label> : ' +
+		cen.insertAdjacentHTML('beforeend','<br /><br /><label>Remarks</label> : ' +
 		 remarks +' ');
 
 		div.appendChild(cen);
