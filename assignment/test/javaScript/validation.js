@@ -33,7 +33,7 @@ function show_hide(num)
 		}
 		case 3:
 		{
-			
+			clear_fields(2);
 			if(document.getElementById('emp_detail')!=null)
 			{
 					document.getElementById('emp_detail').style.display='none';
