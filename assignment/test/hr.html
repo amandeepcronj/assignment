@@ -2,10 +2,50 @@
 <html>
 <head>
 <title>Employs Management</title>
+	<style>
+		body
+		{
+			background: url("form.jpg") no-repeat center center fixed;
+		}
+		label
+		{
+			color:#1B2631;
+		}
+		h1
+		{
+			color:#5b4b49;
+			
+		}
+		h3
+		{
+			color:#7a6c5d;
+		}
+		.button
+		{
+			  background-color: #5b4b49;
+			
+			color: white;
+			border-radius: 8px;
+			border: 2px solid #7a6c5d;
+			 
+			 cursor: pointer;
+		}
+		textarea
+		{
+			border-radius: 3px;
+			border: 2px solid #7a6c5d;
+		}
+		input
+		{
+			border-radius: 3px;
+			border: 2px solid #7a6c5d;
+		}
+	</style>
 	<script src='javaScript/validation.js'></script>
 </head>
 
 <body>
+	
 	<div><h1><center>Employee Management System</center></h1></div>
 	<div id='login_page' >
 			<h3><center> LOGIN <center> </h3>
@@ -13,27 +53,27 @@
 			<center><form onsubmit="return valid()" id='form'>
 			<label>User-email : </label> <input type='email' id='username'>	<br /><br />
 			<label>Password : </label><input type='password' id='password'>  <br /><br />
-			<input type='submit' value="Log in" id='submit'> 
+			<input type='submit' class='button' value="Log in" id='submit'> 
 		</form></center>
 	</div>
 
 <div id='main_div'>
 	
 
-	<div id='add_emp' hidden>
+	<div id='logout' hidden>
 		<center>
 		
-		<button id='add_employee' onclick="show_hide(8);">Logout</button>	
+		<button id='add_employee'  class='button'  onclick="show_hide(8);">Logout</button>	
 		</center>
 	</div>
 
 	<div id='nav_bar' hidden>
 		
-		<nav><center><button onclick='show_hide(3);'>Add Employs</button>&nbsp&nbsp
-		<button onclick='show_hide(4);'>Employ Details</button>&nbsp&nbsp
-		<button onclick='show_hide(5);'>Add Remarks</button>&nbsp&nbsp
-		<button onclick='show_hide(6);'>Search</button>&nbsp&nbsp&nbsp&nbsp
-		<button onclick='show_hide(8);' style="align:'right';">Logout</button>
+		<nav><center><button class='button'  onclick='show_hide(3);'>Add Employs</button>&nbsp&nbsp
+		<button  class='button' onclick='show_hide(4);'>Employ Details</button>&nbsp&nbsp
+		<button  class='button' onclick='show_hide(5);'>Add Remarks</button>&nbsp&nbsp
+		<!--<button onclick='show_hide(6);'>Search</button>-->&nbsp&nbsp&nbsp&nbsp
+		<button  class='button' onclick='show_hide(8);' style="align:'right';">Logout</button>
 		</center>
 		</nav>
 		
@@ -56,7 +96,7 @@
 
 	   <label> Confirm Password : </label> <input type='password' id='emp_pass2'> <br /><br />
 	  
-	  <input type='submit' value="Add details" id='submit4'> 
+	  <input type='submit' class='button' value="Add details" id='submit4'> 
 
 		</form>
 		
