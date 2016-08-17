@@ -2,104 +2,88 @@
 <html>
 <head>
 <title>Employs Management</title>
-	<style>
-		body
-		{
-			background: url("form.jpg") no-repeat center center fixed;
-		}
-		label
-		{
-			color:#641E16;
-		}
-		h1
-		{
-			color:#5b4b49;
-			
-		}
-		h3
-		{
-			color:#7a6c5d;
-		}
-		.button
-		{
-			  background-color: #5b4b49;
-			
-			color: white;
-			border-radius: 8px;
-			border: 2px solid #7a6c5d;
-			 
-			 cursor: pointer;
-		}
-		textarea
-		{
-			border-radius: 3px;
-			border: 2px solid #7a6c5d;
-		}
-		input
-		{
-			border-radius: 3px;
-			border: 2px solid #7a6c5d;
-		}
-		select
-		{
-			border-radius: 3px;
-			border: 2px solid #7a6c5d;
-		}
-	</style>
+	<link rel='stylesheet' type='text/css' href='css/style.css'>
 	<script src='javaScript/validation.js'></script>
 </head>
 
 <body>
 	
 	<div><h1><center>Employee Management System</center></h1></div>
-	<div id='login_page' >
+	<div id='LoginPageForm' >
 			<h3><center> LOGIN <center> </h3>
 
 			<center><form onsubmit="return valid()" id='form'>
-			<label>User-email : </label> <input type='email' id='username'>	<br /><br />
-			<label>Password : </label><input type='password' id='password'>  <br /><br />
+			<table>
+				<tr>
+					<td align="right"><label>Email : </label></td>
+					<td> <input type='email' id='username'></td>
+				</tr>
+				<tr>
+					<td align="right"><label>Password : </label></td>
+					<td><input type='password' id='password'></td>
+				</tr>
+			</table>
+				<br />
 			<input type='submit' class='button' value="Log in" id='submit'> 
 		</form></center>
 	</div>
 
-<div id='main_div'>
+<div id='MainDiv'>
 	
 
-	<div id='logout' hidden>
+	<div id='LogoutButton' hidden>
 		<center>
 		
-		<button id='add_employee'  class='button'  onclick="show_hide(8);">Logout</button>	
+		<button id='add_employee'  class='button'  onclick="showHideOnLogout();">Logout</button>	
 		</center>
 	</div>
 
-	<div id='nav_bar' hidden>
+	<div id='NavigationDiv' hidden>
 		
-		<nav><center><button class='button'  onclick='show_hide(3);'>Add Employs</button>&nbsp&nbsp
-		<button  class='button' onclick='show_hide(4);'>Employ Details</button>&nbsp&nbsp
-		<button  class='button' onclick='show_hide(5);'>Add Remarks</button>&nbsp&nbsp
+		<nav><center>
+		<button class='button'  onclick='showHideNavigationDiv("EmployeeFormDiv");'>Add Employs</button>&nbsp&nbsp
+		<button  class='button' onclick='empDetails()'>Employ Details</button>&nbsp&nbsp
+		<button  class='button' onclick='addRemarks()'>Add Remarks</button>&nbsp&nbsp
 		&nbsp&nbsp&nbsp&nbsp
-		<button  class='button' onclick='show_hide(8);' style="align:'right';">Logout</button>
+		<button  class='button' onclick='showHideOnLogout();' style="align:'right';">Logout</button>
 		</center>
 		</nav>
 		
 	</div>
 	
-	<div id='emp_form1' hidden>	
+	<div id='EmployeeFormDiv' hidden>	
 		<center>
 		<h3>Add Employ Details</h3>
 	   <form id='form2' onsubmit='return data_inp()'>
-	   
-	    <label> Full Name : </label> <input type='text' id='emp_name'> <br /><br />
-	    
-	    <label>Address : </label><textarea width=300 id='address'></textarea><br /><br />
-	    
-	    <label>Pincode : </label><input type="number" id='pincode'><br /><br />
-	   
-	   <label> Email : </label><input type='email' id='email'><br /><br />
-	   
-	   <label> Password : </label> <input type='password' id='emp_pass1'> <br /><br />
 
-	   <label> Confirm Password : </label> <input type='password' id='emp_pass2'> <br /><br />
+	   <table>
+	   	<tr>
+	   		<td align="right"><label> Full Name : </label> </td>
+	   		<td> <input type='text' id='emp_name'></td>
+	   	</tr>
+		<tr>
+	   		<td align="right"> <label>Address : </label></td>
+	   		<td><textarea width=300 id='address'></textarea></td>
+	   	</tr>
+	   	<tr>
+	   		<td align="right"> <label>Pincode : </label></td>
+	   		<td> <input type="number" id='pincode'></td>
+	   	</tr>
+	   	<tr>
+	   		<td align="right"><label> Email : </label></td>
+	   		<td> <input type='email' id='email'></td>
+	   	</tr>
+	   	<tr>
+	   		<td align="right"><label> Password : </label></td>
+	   		<td><input type='password' id='emp_pass1'></td>
+	   	</tr>
+	   	<tr>
+	   		<td align="right"><label> Confirm Password : </label></td>
+	   		<td><input type='password' id='emp_pass2'></td>
+	   	</tr>	   	
+	   </table>
+	   
+	    <br />
 	  
 	  <input type='submit' class='button' value="Add details" id='submit4'> 
 
@@ -112,7 +96,69 @@
 		</select> -->
 		</center>
 	</div>
-	<div id='semi_main'></div>
+	
+		<div id='RemarksDiv' align="center" hidden>
+			<h3>Add Remarks</h3>
+			<table>
+				<tr>
+					<td align="right"><label>Employee : </label></td>
+					<td><select id='RemarkSelect'>
+			</select></td>
+				</tr>
+				<tr>
+					<td align="right"><label>Remarks : </label></td>
+					<td><input type="text" id='RemarkText'></td>
+				</tr>
+
+			</table>
+			
+			<br />
+			
+			
+			<button class='button' onclick='addFeedback()'>Add</button>
+
+
+		</div>
+		<div id='EmployeeDetailDiv' hidden>
+			<center><h3>Employee Detail</h3>
+
+			<label>Employee : </label>
+			<select id='EmploySelect'>
+			</select><br /><br />
+			<button class='button' id='EmployeeDetail' onclick='showEmpDetails()'>Show Detail</button></center>
+		</div>
+
+	<div id='EmployDetailShowDiv' hidden>
+	<center>
+		<h3>Employee Detail</h3>
+		<table>
+			<tr>
+				<td align="right"><label>Name : </label></td>
+				<td><span class='EmployeeDetailText' id='EmployeeName'></span></td>
+			</tr>
+			<tr>
+				<td align="right"><label>Email : </label></td>
+				<td><span class='EmployeeDetailText' id='EmployeeEmail'></span></td>
+			</tr>
+			<tr>
+				<td align="right"><label>Address : </label></td>
+				<td><span class='EmployeeDetailText' id='EmployeeAddress'></span></td>
+			</tr>
+			<tr>
+				<td align="right"><label>Pincode : </label></td>
+				<td><span class='EmployeeDetailText' id='Employeepincode'></span></td>
+			</tr>
+			<tr>
+				<td align="right"><label>Remarks : </label></td>
+				<td><span class='EmployeeDetailText' id='EmployeeRemarks'></span></td>
+			</tr>
+
+		</table>
+
+	</center>
+	</div>
+	
+	
 
 </div>
 

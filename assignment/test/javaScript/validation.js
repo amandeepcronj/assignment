@@ -1,535 +1,317 @@
-var abc=[];
-// function aabb()
-// {
-// 	var bu=document.getElementById('button4');
-// 	bu.preventDefault;
-// }
+var EmpData=[];
+var NONE='none';
+var BLOCK='block';
+var EMPTY_FIELD="";
+var NULL=null;
+var HR_EMAIL='aman@g.com';
+var HR_PASSWORD=12345;
+var TEST='it is working...';
+var ERROR_ID_PASSWORD='Either Email or Password is Incorrect';
+var ERROR_EMPTY_FIELDS='Please do not leave blank fields';
+var ERROR_PASSWORD_MISMATCH='Password Mismatch';
+var ERROR_EMAIL_ERROR='Please Enter Another Email';
 
-function show_hide(num)
-{
+
+
+/**
+ * hjh
+ * @param num - STRING
+ */
+function showHideOnHrLogin(num) {
+	document.getElementById('MainDiv').style.display = BLOCK;
 	switch(num)
-	{
-		
+	{		
 		case 1:
 		{
-			document.getElementById('emp_form1').style.display='none';
-			document.getElementById('logout').style.display='none';
-			document.getElementById('nav_bar').style.display='block';
-			emp_details();
+			document.getElementById('EmployeeFormDiv').style.display = NONE;
+			document.getElementById('LogoutButton').style.display = NONE;
+			document.getElementById('NavigationDiv').style.display = BLOCK;
+			empDetails();
 			break;
 		}
 		case 2:
-		{
-			if(document.getElementById('emp_data')!=null)
-			{
-					document.getElementById('emp_data').style.display='none';
-			}
-			document.getElementById('login_page').style.display='none';
-			
-			document.getElementById('main_div').style.display='block';
-			document.getElementById('logout').style.display='block';
-			show();
+		{			
+			document.getElementById('LoginPageForm').style.display = NONE;
+			document.getElementById('LogoutButton').style.display = BLOCK;
+			document.getElementById('EmployeeFormDiv').style.display = BLOCK;
 			break;
-		}
-		case 3:
-		{
-			clear_fields(2);
-			if(document.getElementById('emp_detail')!=null)
-			{
-					document.getElementById('emp_detail').style.display='none';
-			}
-			if(document.getElementById('show_emp_detail')!=null)
-			{
-					document.getElementById('show_emp_detail').style.display='none';
-			}
-			if(document.getElementById('remarks_div')!=null)
-			{
-					document.getElementById('remarks_div').style.display='none';
-			}
-			if(document.getElementById('emp_data')!=null)
-			{
-					document.getElementById('emp_data').style.display='none';
-			}
-			document.getElementById('semi_main').style.display='block';
-			document.getElementById('emp_form1').style.display='block';
-			break;
-		}
-		case 4:
-		{
-			if(document.getElementById('show_emp_detail')!=null)
-			{
-					document.getElementById('show_emp_detail').style.display='none';
-			}
-			if(document.getElementById('remarks_div')!=null)
-			{
-					document.getElementById('remarks_div').style.display='none';
-			}
-			if(document.getElementById('emp_form1')!=null)
-			{
-					document.getElementById('emp_form1').style.display='none';
-			}
-			if(document.getElementById('emp_data')!=null)
-			{
-					document.getElementById('emp_data').style.display='none';
-			}
-			document.getElementById('semi_main').style.display='block';
-			emp_details();
-			
-			
-			break;
-		}
-		case 5:
-		{
-			if(document.getElementById('emp_detail')!=null)
-			{
-					document.getElementById('emp_detail').style.display='none';
-			}
-			if(document.getElementById('show_emp_detail')!=null)
-			{
-					document.getElementById('show_emp_detail').style.display='none';
-			}
-			if(document.getElementById('emp_form1')!=null)
-			{
-					document.getElementById('emp_form1').style.display='none';
-			}
-			if(document.getElementById('emp_data')!=null)
-			{
-					document.getElementById('emp_data').style.display='none';
-			}
-			document.getElementById('semi_main').style.display='block';
-			add_remarks();
-			break;
-		}
-		case 6:
-		{
-			if(document.getElementById('emp_detail')!=null)
-			{
-					document.getElementById('emp_detail').style.display='none';
-			}
-			if(document.getElementById('show_emp_detail')!=null)
-			{
-					document.getElementById('show_emp_detail').style.display='none';
-			}
-			if(document.getElementById('remarks_div')!=null)
-			{
-					document.getElementById('remarks_div').style.display='none';
-			}
-			if(document.getElementById('emp_form1')!=null)
-			{
-					document.getElementById('emp_form1').style.display='none';
-			}
-			if(document.getElementById('emp_data')!=null)
-			{
-					document.getElementById('emp_data').style.display='none';
-			}
-			document.getElementById('semi_main').style.display='block';
-			break;
-		}
-		case 7:
-		{
-			document.getElementById('emp_detail').style.display='none';
-			break;
-		}
-		case 8:
-		{
-			clear_fields(1);
-			document.getElementById('logout').style.display='none';
-			document.getElementById('nav_bar').style.display='none';
-			document.getElementById('emp_form1').style.display='none';
-			document.getElementById('semi_main').style.display='none';
-			document.getElementById('login_page').style.display='block';
-
-			break;
-		}
-		case 9:
-		{
-			if(document.getElementById('show_emp_detail')!=null)
-			{
-					document.getElementById('show_emp_detail').style.display='none';
-			}
-			if(document.getElementById('remarks_div')!=null)
-			{
-					document.getElementById('remarks_div').style.display='none';
-			}
-			if(document.getElementById('emp_detail')!=null)
-			{
-					document.getElementById('emp_detail').style.display='none';
-			}
-			document.getElementById('login_page').style.display='none';
-			
-			document.getElementById('logout').style.display='block';
-			document.getElementById('semi_main').style.display='block';
-		}
+		}				
 	}
 }
 
-function clear_fields(num)
-{
-	switch(num)
-	{
-		case 1:
-		{
-			document.getElementById('username').value='';
-			document.getElementById('password').value='';
-			break;
-		}
-		case 2:
-		{
-			document.getElementById('emp_name').value='';
-			document.getElementById('address').value='';
-			document.getElementById('email').value='';
-			document.getElementById('pincode').value='';
-			document.getElementById('emp_pass1').value='';
-			document.getElementById('emp_pass2').value='';
-			break;
-		}
-	}
+function showHideNavigationDiv(DivId) {
+	hideAllDiv();
+	document.getElementById('MainDiv').style.display = BLOCK;
+	document.getElementById('NavigationDiv').style.display = BLOCK;
+	document.getElementById(DivId).style.display = BLOCK;	
 }
 
-function valid()
-{
-	var username=document.getElementById('username').value;
-	var password=document.getElementById('password').value;
-	if(username=="" || password=="")
-	{
-		alert('please do not leave field blank');
-	}
-	
-	else if(username=='aman@g.com' && password==12345)
-	{
-		if(abc[0]==null)
-		{
-			//alert("Correct login");
-			show_hide(2);
-			clear_fields(1);
-			
-			
-		}
-		else
-		{
-			document.getElementById('login_page').style.display='none';
-			document.getElementById('nav_bar').style.display='block';
-			show_hide(4);
+function hideAllDiv() {
+	document.getElementById('LogoutButton').style.display = NONE;
+	document.getElementById('EmployeeFormDiv').style.display = NONE;
+	document.getElementById('RemarksDiv').style.display = NONE;
+	document.getElementById('EmployeeDetailDiv').style.display = NONE;
+	document.getElementById('EmployDetailShowDiv').style.display = NONE;
+	document.getElementById('NavigationDiv').style.display = NONE;
+}
+function showHideOnLogout() {
+	clearLoginPageFields();
+	document.getElementById('MainDiv').style.display = NONE;		
+	document.getElementById('LoginPageForm').style.display = BLOCK;
+}
 
-		}	
-		
+function showHideOnEmployeeLogin() {	
+	hideAllDiv();
+	document.getElementById('LoginPageForm').style.display = NONE;
+	document.getElementById('MainDiv').style.display = BLOCK;
+	document.getElementById('LogoutButton').style.display = BLOCK;	
+}
+
+function clearLoginPageFields() {
+	document.getElementById('username').value = EMPTY_FIELD;
+	document.getElementById('password').value = EMPTY_FIELD;
+}
+
+function clearEmployeeFormFields() {
+	document.getElementById('emp_name').value = EMPTY_FIELD;
+	document.getElementById('address').value = EMPTY_FIELD;
+	document.getElementById('email').value = EMPTY_FIELD;
+	document.getElementById('pincode').value = EMPTY_FIELD;
+	document.getElementById('emp_pass1').value = EMPTY_FIELD;
+	document.getElementById('emp_pass2').value = EMPTY_FIELD;
+}
+
+function clearRemarksField() {
+	document.getElementById('RemarkText').value = EMPTY_FIELD;
+}
+
+function emptyFieldValidate() {
+	var username = document.getElementById('username').value;
+	var password = document.getElementById('password').value;
+	if(username == EMPTY_FIELD || password == EMPTY_FIELD) {
+		return false;
 	}
-	else
+	return true;
+}
+
+function hrAuthentication() {
+	var username = document.getElementById('username').value;
+	var password = document.getElementById('password').value;
+	if(username == HR_EMAIL && password == HR_PASSWORD) {
+		return true;
+	}
+		return false;	
+}
+
+function containsEmployData() {
+	if(EmpData[0] == NULL)
 	{
-		if(abc[0]!=null)
-		{
-			for(i=0;i<abc.length;i++)
-			{
-				var email=abc[i].email;
-				var pass=abc[i].password;
-				if(username==email && password == pass )
-				{
-					show_hide(9);
-					show_details(i);
-					clear_fields(1);
-					return false;
+		return false;
+	}
+		return true;
+}
+
+function employeeAuthentication() {
+	var username = document.getElementById('username').value;
+	var password = document.getElementById('password').value;
+	for(i=0; i<EmpData.length; i++) {
+				var userEmail = EmpData[i].email;
+				var userPassword = EmpData[i].password;
+				if(username == userEmail && password == userPassword ) {
+					return i+1;
 					break;
 				}
 			}
-			alert("Wrong id password");
-			clear_fields(1);
-		}
-		else
-		{
-			
-			
-			alert("Wrong id password");
-			clear_fields(1);
-		}
-		
-	}
+			return false;
+}
 
-	
+function valid() {
+	if(emptyFieldValidate()) {
+		if(hrAuthentication()) {
+			if(containsEmployData()) {
+				document.getElementById('LoginPageForm').style.display = NONE;
+				document.getElementById('NavigationDiv').style.display = BLOCK;
+				showHideNavigationDiv("EmployeeDetailDiv");				
+			}
+			else {
+				showHideOnHrLogin(2);
+				clearLoginPageFields();	
+			}
+		}
+		else if(containsEmployData()) {
+			var index = employeeAuthentication();
+
+			if(index) {
+				showHideOnEmployeeLogin();
+				showDetails(index-1);
+				clearLoginPageFields();
+			}
+			else {
+				alert(ERROR_ID_PASSWORD);
+				clearLoginPageFields();
+			}
+		}
+		else {
+			alert(ERROR_ID_PASSWORD);
+			clearLoginPageFields();
+		}
+	}
+	else {
+		alert(ERROR_EMPTY_FIELDS);
+	}
 	return false;
-
 }
 
-function show()
-{
-		document.getElementById('logout').style.display='block';
-		document.getElementById('emp_form1').style.display='block';
+function checkEmployeeFormEmptyField(empObject) {	
+	for(var attr in empObject) {		
+		if(empObject[attr] == EMPTY_FIELD) {
+			return false;
+		}
+	}
+	return true;
 }
 
-function data_inp()
-{
+function isPasswordMatch(employData) {
 
-	var emp_name=document.getElementById('emp_name').value;
-	var email=document.getElementById('email').value;
-	var address=document.getElementById('address').value;
-	var pincode=document.getElementById('pincode').value;
-	var pass1=document.getElementById('emp_pass1').value;
-	var pass2=document.getElementById('emp_pass2').value;
+	if(employData.pass1 == employData.pass2) {
+		return true;
+	}
+		return false;
+}
 
-	if(emp_name=="" || email== "" || address== ""|| pincode == "" || pass1 == "" || pass2 == "")
-	{
-		alert('please fill all fields');
+function isEmailExist(employData) {
+	if(employData.email == HR_EMAIL) {
+		return true;
 	}
-	else if(pass1!=pass2)
-	{
-		alert('Password Mismatch.');
+	else if(EmpData[0] == NULL) {
+		return false;
 	}
-	else if(email=='aman@g.com')
-	{
-		alert('Please Enter Another email');
-	}
-	else
-	{
-		if(abc[0]!=null)
-		{
-			for(i=0;i<abc.length;i++)
-			{
-				var email1=abc[i].email;
+	else {
+		for(i=0;i<EmpData.length;i++) {
+				var userEmail = EmpData[i].email;
 				
-				if(email==email1 || email=='aman@g.com')
-				{
-					alert('Please Enter Another email');
-					return false;
+				if(employData.email == userEmail) {					
+					return true;
 					break;
 				}
 			}
-			var obj={};
-		obj.username=emp_name;
-		obj.address=address;
-		obj.pincode=pincode;
-		obj.email=email;
-		obj.password=pass1;
-		obj.remarks='';
-		abc.push(obj);	
-		
-		clear_fields(2);
-		show_hide(1);
-			
-		}
-		else
-		{
-			
-			var obj={};
-		obj.username=emp_name;
-		obj.address=address;
-		obj.pincode=pincode;
-		obj.email=email;
-		obj.password=pass1;
-		obj.remarks='';
-		abc.push(obj);	
-		
-		clear_fields(2);
-		show_hide(1);
-		}
-
-		
-		
-		
+			return false;
 	}
+}
 
+function data_inp() {
+	var obj = {};	
+	obj.email = document.getElementById('email').value;
+	obj.address = document.getElementById('address').value;
+	obj.username = document.getElementById('emp_name').value;
+	obj.pincode = document.getElementById('pincode').value;
+	obj.password = document.getElementById('emp_pass1').value;
+	obj.remarks = " ";
+	obj.pass1 = document.getElementById('emp_pass1').value;
+    obj.pass2 = document.getElementById('emp_pass2').value;
+    	
+	if(checkEmployeeFormEmptyField(obj)) {
+		if(isPasswordMatch(obj)) {
+			if(!isEmailExist(obj)) {
+				EmpData.push(obj);
+				clearEmployeeFormFields();
+				showHideOnHrLogin(1);
+			}
+			else {
+				alert(ERROR_EMAIL_ERROR);
+			}
+			
+		}
+		else {
+			alert(ERROR_PASSWORD_MISMATCH);
+		}
+	}
+	else {
+		alert(ERROR_EMPTY_FIELDS);
+	}
 	return false;
-	
-	
-
-	
-	
-	
 }
 
-function nav_show()
-{
-	document.getElementById('emp_form1').style.display='none';
-	document.getElementById('nav_bar').style.display='block';
+function insertObjectInArray() {
+	var emp_name = document.getElementById('emp_name').value;
+	var email = document.getElementById('email').value;
+	var address = document.getElementById('address').value;
+	var pincode = document.getElementById('pincode').value;
+	var pass1 = document.getElementById('emp_pass1').value;
+	var obj = {};
+		obj.username = emp_name;
+		obj.address = address;
+		obj.pincode = pincode;
+		obj.email = email;
+		obj.password = pass1;
+		obj.remarks = EMPTY_FIELD;
+		EmpData.push(obj);			
 }
 
-
-
-
-function emp_details()
-{
-	var prev_div = document.getElementById('emp_detail');
-   
-    if(prev_div!=null)
-    {
-   	 prev_div.parentNode.removeChild(prev_div); 	
-	};
-
-	var div=document.createElement('div');
-		div.setAttribute('id','emp_detail');
-	var cen=document.createElement('center');
-	var br=document.createElement('br');
-	var br2=document.createElement('br');
-	var header=document.createElement('h3');
-
-	var data=document.createTextNode("Employ Details ");
-		header.appendChild(data);
-	var label=document.createElement('label');
-	var data2=document.createTextNode('Select Employ : ');
-		label.appendChild(data2);
-
-	var button=document.createElement('button');
-		button.setAttribute('onclick','show_emp_details();');
-		button.setAttribute('class','button');
-		
-	var data3=document.createTextNode('Show Details');
-		button.appendChild(data3);
-	var sel=document.createElement('select');
-		sel.setAttribute('id','select1');
-
-
-	for(var i=0;i<abc.length;i++)
-	{
-		var opt=document.createElement('option');
+function empDetails() {
+	showHideNavigationDiv("EmployeeDetailDiv");
+	var select = document.getElementById('EmploySelect');
+	for (i = select.length - 1; i >= 0; i--)  {
+		select.remove(i);
+	}	
+	for(var i = 0;i < EmpData.length;i++) {
+		var opt = document.createElement('option');
 		opt.setAttribute('value',i);
-		var node=document.createTextNode(abc[i].username);		
+		var node = document.createTextNode(EmpData[i].username);		
 		opt.appendChild(node);		
-		sel.appendChild(opt);
+		select.appendChild(opt);
 	}
-		
-		
-		cen.appendChild(header);
-		cen.appendChild(br);
-
-		cen.appendChild(label);
-		cen.appendChild(sel);
-		var br1=document.createElement('br');
-		cen.appendChild(br1);
-		cen.appendChild(br2);
-		cen.appendChild(button);
-	var div2=document.getElementById('semi_main');
-	div.appendChild(cen);
-	div2.appendChild(div);
+	document.getElementById('EmployeeDetailDiv').style.display = BLOCK;
 }
 
-function show_emp_details()
-{
-		var prev_div = document.getElementById('show_emp_detail');
-   
-    if(prev_div!=null)
-    {
-   	 prev_div.parentNode.removeChild(prev_div); 	
-	};
-
-		var sel=document.getElementById('select1');
-		var index=sel.options[sel.selectedIndex].value;
-		var username=abc[index].username;
-		var email=abc[index].email;
-		var address=abc[index].address;
-		var pincode=abc[index].pincode;
-		var remarks=abc[index].remarks;
-
-		//alert(username);
-		show_hide(7);
-		
-		var div=document.createElement('div');
-		div.setAttribute('id','show_emp_detail');
-		var cen=document.createElement('center');
-		// div.innerHTML('<br /><label>Employee name</label>' + username +' ');
-		//alert(username);
-
-		var main_div=document.getElementById('semi_main');
-		cen.insertAdjacentHTML('beforeend','<h3>Employ Details</h3>');
-		cen.insertAdjacentHTML('beforeend','<label>Full name</label> : ' +
-		 username +' ');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><label>Email</label> : ' +
-		 email +' ');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><label>Address</label> : ' +
-		 address +' ');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><label>Pincode</label> : ' +
-		 pincode +' ');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><label>Remarks</label> : ' +
-		 remarks +' ');
-
-		div.appendChild(cen);
-		main_div.appendChild(div);
-		
-
-
-		//add_remarks();
-
+function showEmpDetails() {
+		var select = document.getElementById('EmploySelect');
+		var index = select.options[select.selectedIndex].value;
+		showDetails(index);		
 }
 
-function add_remarks()
-{
-	var prev_div = document.getElementById('remarks_div');
-   
-    if(prev_div!=null)
-    {
-   	 prev_div.parentNode.removeChild(prev_div); 	
-	};
+function addRemarks() {	
+	document.getElementById('RemarkText').value = EMPTY_FIELD;
+	showHideNavigationDiv("RemarksDiv");
+	var select = document.getElementById('RemarkSelect');
 
-	var div=document.createElement('div');
-		div.setAttribute('id','remarks_div');
-
-	var cen=document.createElement('center');
-		cen.insertAdjacentHTML('afterbegin','<label>Employs : ');
-		cen.insertAdjacentHTML('afterbegin','<h2>Add Remarks</h2>');
-	var sel=document.createElement('select');
-		sel.setAttribute('id','select2');
-
-		for(var i=0;i<abc.length;i++)
-	{
-		var opt=document.createElement('option');
+	for (i = select.length - 1; i >= 0; i--)  {
+		select.remove(i);
+	}
+	for(var i = 0;i < EmpData.length;i++) {
+		var opt = document.createElement('option');
 		opt.setAttribute('value',i);
-		var node=document.createTextNode(abc[i].username);		
+		var node = document.createTextNode(EmpData[i].username);		
 		opt.appendChild(node);		
-		sel.appendChild(opt);
+		select.appendChild(opt);
 	}
-		cen.appendChild(sel);
-		cen.insertAdjacentHTML('beforeend',''+
-			'<br /><br /><label>Remarks : </label><input type="text" id="feedback">');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><button  class="button" onclick="add_feedback();"> Add </button>'+
-			'');
-		var main_div=document.getElementById('semi_main');
-		div.appendChild(cen);
-		main_div.appendChild(div);
-		
+	document.getElementById('RemarksDiv').style.display=BLOCK;			
 }
 
-function add_feedback()
-{
-	var sel=document.getElementById('select2');
-		var index=sel.options[sel.selectedIndex].value;
-		abc[index].remarks=document.getElementById('feedback').value;
-		show_hide(4);
+function addFeedback() {
+		var sel = document.getElementById('RemarkSelect');
+		var index = sel.options[sel.selectedIndex].value;
+		EmpData[index].remarks = document.getElementById('RemarkText').value;
+		showHideNavigationDiv("EmployeeDetailDiv");;
 }	
 
+function showDetails(index) {
+	var elements = document.getElementsByClassName('EmployeeDetailText');
+    	for(i = 0;i < elements.length;i++) {
+        	elements[i].innerHTML = EMPTY_FIELD;
+    	}
+		var username = document.createTextNode(EmpData[index].username);
+		var email = document.createTextNode(EmpData[index].email);
+		var address = document.createTextNode(EmpData[index].address);
+		var pincode = document.createTextNode(EmpData[index].pincode);
+		var remarks = document.createTextNode(EmpData[index].remarks);
 
+		document.getElementById('EmployeeName').appendChild(username);
+		document.getElementById('EmployeeEmail').appendChild(email);
+		document.getElementById('EmployeeAddress').appendChild(address);
+		document.getElementById('Employeepincode').appendChild(pincode);
+		document.getElementById('EmployeeRemarks').appendChild(remarks);		
 
-function show_details(index)
-{
-	document.getElementById('semi_main').style.display='block';
-	var prev_div = document.getElementById('emp_data');
-   
-    if(prev_div!=null)
-    {
-   	 prev_div.parentNode.removeChild(prev_div); 	
-	};
-	
-		var username=abc[index].username;
-		var email=abc[index].email;
-		var address=abc[index].address;
-		var pincode=abc[index].pincode;
-		var remarks=abc[index].remarks;
-		
-		var div=document.createElement('div');
-		div.setAttribute('id','emp_data');
-		var cen=document.createElement('center');
-		// div.innerHTML('<br /><label>Employee name</label>' + username +' ');
-		//alert(username);
-
-		var main_div=document.getElementById('semi_main');
-		cen.insertAdjacentHTML('beforeend','<h3>Employ Details</h3>');
-		cen.insertAdjacentHTML('beforeend','<label>Full name</label> : ' +
-		 username +' ');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><label>Email</label> : ' +
-		 email +' ');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><label>Address</label> : ' +
-		 address +' ');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><label>Pincode</label> : ' +
-		 pincode +' ');
-		cen.insertAdjacentHTML('beforeend','<br /><br /><label>Remarks</label> : ' +
-		 remarks +' ');
-
-		div.appendChild(cen);
-		main_div.appendChild(div);
+		document.getElementById('EmployDetailShowDiv').style.display=BLOCK;
 }
+

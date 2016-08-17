@@ -1,0 +1,44 @@
+	body
+		{
+			background: url("../form.jpg") no-repeat center center fixed;
+		}
+		label
+		{
+			color:#641E16;
+			text-align: 'right';
+		}
+		h1
+		{
+			color:#5b4b49;
+			
+		}
+		h3
+		{
+			color:#7a6c5d;
+		}
+		.button
+		{
+			  background-color: #5b4b49;
+			
+			color: white;
+			border-radius: 8px;
+			border: 2px solid #7a6c5d;
+			 
+			 cursor: pointer;
+		}
+		textarea
+		{
+			border-radius: 3px;
+			border: 2px solid #7a6c5d;
+		}
+		input
+		{
+			border-radius: 3px;
+			border: 2px solid #7a6c5d;
+		}
+		select
+		{
+			border-radius: 3px;
+			border: 2px solid #7a6c5d;
+		}
+		
